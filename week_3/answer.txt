@@ -1,0 +1,9 @@
+1. fun iseven n = if n mod 2 = 0 then true else false;
+2. fun cube n = n*n*n;
+3. fun cuber(n): real =  n*n*n;
+4. fun third L = hd (tl (tl (L)));
+5. fun max3(a, b, c):int = if a >= b andalso a >= c then a else if b >= c then b else c;
+6. fun remove2(a, b, c) = (a, c);
+7. fun fourthch x = hd (tl (tl (tl (explode x))));
+8. fun rotate(a: 'a list, b: int): 'a list = if b = 0 then a else rotate(tl a @ [hd a] , b-1)
+9. 
