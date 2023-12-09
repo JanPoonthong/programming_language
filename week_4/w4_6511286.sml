@@ -15,3 +15,16 @@ fun repeats (nil) = false
 fun quicksort(nil)= []
   | quicksort(first::rest) =
     quicksort(lessthan(first, rest)) @ [first] @ quicksort(greaterthan(first, rest));
+
+fun member(e, nil) = false
+  | member(e, first::rest) = exist(e, nil)
+
+fun union(nil, nil) = []
+  | union(a, b) = a @ b
+
+fun intersection(nil, _) = []
+  | intersection(first::rest, b) =
+  if exist(first, b) then
+    first :: intersection(rest, b)
+  else
+    intersection(rest, b)
