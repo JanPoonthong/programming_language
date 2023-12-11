@@ -1,5 +1,5 @@
-fun exist (e, nil) = false 
-  | exist (e, first::rest) = if e = first then true else exist(e, rest) 
+fun exist (e, nil) = false
+  | exist (e, first::rest) = if e = first then true else exist(e, rest)
 
 fun lessthan(e, nil) = []
   | lessthan(e, first::rest) = if first < e then [first] @ lessthan(e, rest)
@@ -28,3 +28,9 @@ fun intersection(nil, _) = []
     first :: intersection(rest, b)
   else
     intersection(rest, b)
+
+fun powerhelper(_, []) = []
+  | powerhelper(start, first::rest) = [start, first] :: powerhelper(start, rest)
+
+fun powerset(nil) = [[]]
+  | powerset(first::rest) = powerset(rest) @ [first] :: powerhelper(first, rest)
