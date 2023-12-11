@@ -1,3 +1,5 @@
+(* Jan Poonthong, 6511286, CSX3004(541) *)
+
 fun exist (e, nil) = false
   | exist (e, first::rest) = if e = first then true else exist(e, rest)
 
