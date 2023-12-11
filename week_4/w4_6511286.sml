@@ -29,8 +29,11 @@ fun intersection(nil, _) = []
   else
     intersection(rest, b)
 
-fun powerhelper(_, []) = []
-  | powerhelper(start, first::rest) = [start, first] :: powerhelper(start, rest)
-
 fun powerset(nil) = [[]]
-  | powerset(first::rest) = powerset(rest) @ [first] :: powerhelper(first, rest)
+  | powerset(first::rest) =
+    let
+      val restPowerset = powerset(rest);
+      val withFirst = List.map (fn set => first :: set) restPowerset;
+    in
+      restPowerset @ withFirst
+    end;
