@@ -17,7 +17,7 @@ fun quicksort(nil)= []
     quicksort(lessthan(first, rest)) @ [first] @ quicksort(greaterthan(first, rest));
 
 fun member(e, nil) = false
-  | member(e, first::rest) = exist(e, nil)
+  | member(e, first::rest) = exist(e, first::rest)
 
 fun union(nil, nil) = []
   | union(a, b) = a @ b
