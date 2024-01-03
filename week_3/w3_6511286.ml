@@ -39,4 +39,3 @@ fun select(a: 'a list, f: 'a -> bool): 'a list =
       then [hd a] @ select(tl a, f)
     else
       select(tl a, f)
-
