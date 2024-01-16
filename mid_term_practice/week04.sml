@@ -10,11 +10,11 @@ fun repeats nil = false
 fun member (n, []) = false
   | member (n, x::xs) = exist(n, x::xs)
 
-fun union (xs, nil) = xs
-  | union (xs, first::last) = if member(first, xs) then union(xs, first::last) else first::union(xs, last);
+fun union (xs, nil) = [] 
+  | union (xs, first::last) = if member(xs, first::last) then first::last else xs::first::last
 
-fun intersection (xs, nil) = nil
-  | intersection(xs, y::ys) = if exist(y, xs) then y::intersection(xs, ys) else intersection(xs, ys);
+fun intersection (nil, _) = []
+  | intersection(x::xs, ys) = if member(x, ys) then x::intersection(xs, ys) else intersection(xs, ys)
 
 fun powerset nil = [nil]
   | powerset (head::rest) = 
