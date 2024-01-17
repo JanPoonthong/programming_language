@@ -21,8 +21,8 @@ fun quicksort(nil)= []
 fun member(e, nil) = false
   | member(e, first::rest) = exist(e, first::rest)
 
-fun union(nil, nil) = []
-  | union(a, b) = a @ b
+fun union (xs, nil) = [] 
+| union (xs, first::last) = if member(xs, first::last) then first::last else xs::first::last
 
 fun intersection(nil, _) = []
   | intersection(first::rest, b) =

@@ -10,7 +10,7 @@ fun repeats nil = false
 fun member (n, []) = false
   | member (n, x::xs) = exist(n, x::xs)
 
-fun union (xs, nil) = [] 
+fun union (xs, nil) = []
   | union (xs, first::last) = if member(xs, first::last) then first::last else xs::first::last
 
 fun intersection (nil, _) = []
